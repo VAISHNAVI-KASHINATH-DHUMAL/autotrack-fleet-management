@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AutoTrack dashboard for vehicle maintenance, test runs, and defect tracking." />
+    <title>AutoTrack | Dashboard</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" aria-label="Main navigation">
+            <a class="brand" href="./index.html" aria-label="AutoTrack dashboard">
+                <span class="brand-mark">AT</span>
+                <span>AutoTrack</span>
+            </a>
+
+            <nav class="navigation">
+                <a class="navigation-link navigation-link--active" href="./index.html">
+                    Dashboard
+                </a>
+                <a class="navigation-link" href="#vehicles">Vehicles</a>
+                <a class="navigation-link" href="#maintenance">Maintenance</a>
+                <a class="navigation-link" href="#test-runs">Test Runs</a>
+                <a class="navigation-link" href="#defects">Defects</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Portfolio project</p>
+                <p>Phase 1: Static dashboard</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">Fleet test management</p>
+                    <h1>Dashboard</h1>
+                    <p class="page-description">
+                        Overview of vehicle availability, maintenance, test results, and defects.
+                    </p>
+                </div>
+
+                <div class="user-profile">
+                    <span class="user-avatar" aria-hidden="true">VK</span>
+                    <div>
+                        <p class="user-name">Vaishnavi Dhumal</p>
+                        <p class="user-role">Test Engineer</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="stats-grid" aria-label="Fleet summary">
+                <article class="stat-card">
+                    <p class="stat-card__label">Total vehicles</p>
+                    <p class="stat-card__value" id="total-vehicles">0</p>
+                    <p class="stat-card__note">Registered in AutoTrack</p>
+                </article>
+
+                <article class="stat-card stat-card--success">
+                    <p class="stat-card__label">Vehicles in service</p>
+                    <p class="stat-card__value" id="vehicles-in-service">0</p>
+                    <p class="stat-card__note">Available for test activities</p>
+                </article>
+
+                <article class="stat-card stat-card--warning">
+                    <p class="stat-card__label">Maintenance due</p>
+                    <p class="stat-card__value" id="maintenance-due">0</p>
+                    <p class="stat-card__note">Requires attention this week</p>
+                </article>
+
+                <article class="stat-card stat-card--danger">
+                    <p class="stat-card__label">Open defects</p>
+                    <p class="stat-card__value" id="open-defects-count">0</p>
+                    <p class="stat-card__note">High and medium priority items</p>
+                </article>
+            </section>
+
+            <section class="dashboard-grid">
+                <article class="panel">
+                    <div class="panel__header">
+                        <div>
+                            <p class="eyebrow">Quality overview</p>
+                            <h2>Recent test runs</h2>
+                        </div>
+                        <button class="button button--secondary" type="button">
+                            View all
+                        </button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <caption class="sr-only">
+                                Recent vehicle test run results
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Test ID</th>
+                                    <th scope="col">Vehicle</th>
+                                    <th scope="col">Test case</th>
+                                    <th scope="col">Result</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="test-runs-table-body"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="panel" id="defects">
+                    <div class="panel__header">
+                        <div>
+                            <p class="eyebrow">Action required</p>
+                            <h2>Open defects</h2>
+                        </div>
+                        <button class="button button--primary" type="button">
+                            Create defect
+                        </button>
+                    </div>
+
+                    <div class="defect-list" id="defect-list"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
